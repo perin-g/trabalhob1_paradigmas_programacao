@@ -85,7 +85,7 @@ public class Guerreiro extends Personagem implements Especial {
     public void usarHabilidadeEspecial(Personagem alvo) {
 
     }
-
+//123
     /*
     * Descrição: Aumenta bonusForca em +5 para o próximo ataque. Só pode ser usado uma vez por batalha.
     * */
