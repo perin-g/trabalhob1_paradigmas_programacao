@@ -60,7 +60,10 @@ public abstract class Personagem {
     * Invocar alvo.receberDano(danoFinal);
     * */
     public void atacar(Personagem alvo) {
-
+    int valorAtaque = this.getPoderAtaque();
+    int defesaPersonagemAlvo = alvo.getDefesaBase();
+    valorAtaque - defesaPersonagemAlvo
+    alvo.receberDano
     }
 
     /*

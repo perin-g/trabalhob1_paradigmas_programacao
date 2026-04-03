@@ -60,4 +60,28 @@ public class Arqueiro extends Personagem implements Especial {
             }
     }
 
+    @Override
+    public void atacar(Personagem alvo) {
+            getPoderAtaque();
+            alvo.getDefesaBase();
+        super.atacar(alvo);
+            if()
+        super.atacar(alvo);
+
+    }
+
+
+    public void receberDano(int quantidade){
+            super.receberDano();
+    }
+
+    @Override
+    public void receberDano(int quantidade, boolean critico) {
+        super.receberDano(quantidade, critico);
+    }
+
+    @Override
+    public void receberCura(int quantidade) {
+        super.receberCura(quantidade);
+    }
 }
