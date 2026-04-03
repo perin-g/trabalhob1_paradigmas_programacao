@@ -3,7 +3,7 @@ package Classes;
 import Interfaces.Especial;
 
 public class Guerreiro extends Personagem implements Especial {
-
+//ola mundo
     private int forca;
     private int stamina;
     private boolean gritoUsado;
