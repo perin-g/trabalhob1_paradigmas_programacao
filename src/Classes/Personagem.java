@@ -62,16 +62,27 @@ public abstract class Personagem {
     public void atacar(Personagem alvo) {
     int valorAtaque = this.getPoderAtaque();
     int defesaPersonagemAlvo = alvo.getDefesaBase();
-    valorAtaque - defesaPersonagemAlvo
-    alvo.receberDano
+    int valorFinalDano = (valorAtaque - defesaPersonagemAlvo);
+        if(valorFinalDano <= 0){
+            valorFinalDano = 0;
+        }
+        System.out.println("voce causou " + valorFinalDano + " de dano, com seu ataque.");
+    alvo.receberDano(valorFinalDano);
     }
-
     /*
     * TODO: implementar método
     * Descrição: Subtrai o valor de quantidade do HP; se o HP ficar abaixo de 0, ajusta para 0.
     * */
     public void receberDano(int quantidade) {
-
+        int hpAtual = getHp();
+        int novoHp = (hpAtual - quantidade);
+        if (novoHp <= 0){
+            setHp(0);
+            System.out.println("voce recebeu um ataque, o dano foi de "+ quantidade + " | seu HP atual é:" + 0);
+        } else {
+            setHp(novoHp);
+            System.out.println("voce recebeu um ataque, o dano foi de "+ quantidade + " | seu HP atual é:"+ novoHp);
+        }
     }
 
     /*
@@ -79,7 +90,15 @@ public abstract class Personagem {
     *  Descrição: Sobrecarga de receberDano. Se o parâmetro critico for true, dobra o valor de quantidade antes de subtrair do HP.
     * */
     public void receberDano(int quantidade, boolean critico){
-
+        int danoRecebido = quantidade;
+        int hpAtual = getHp();
+        boolean danoCritico = critico;
+        if ( critico == true){
+            danoRecebido = (danoRecebido * 2);
+            receberDano(danoRecebido);
+        } else {
+            receberDano(danoRecebido);
+        }
     }
 
     /*
@@ -87,7 +106,8 @@ public abstract class Personagem {
     * Descrição: Incrementa o HP em quantidade, sem ultrapassar hpMax.
     * */
     public void receberCura(int quantidade) {
-
+        int hpPersonagem = getHp();
+        int PontosDeCura = quantidade;
     }
 
     /*
