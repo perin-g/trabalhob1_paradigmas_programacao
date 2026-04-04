@@ -37,7 +37,12 @@ public class Arqueiro extends Personagem implements Especial {
 
     @Override
     protected int getPoderAtaque() {
-        return 0;
+            if( flechas > 0){
+                return destreza;
+            } else {
+                int destrezaAtt = (destreza / 2);
+                return destrezaAtt;
+            }
     }
 
     @Override
@@ -47,19 +52,23 @@ public class Arqueiro extends Personagem implements Especial {
                 " | Destreza: " + this.getDestreza());
     }
 
+
     @Override
-    public void usarHabilidadeEspecial(Personagem alvo) {
+    public void usarHabilidadeEspecial (Personagem alvo) {
         int danoAtaque;
-        if (flechas > 0) {
+        if (flechas >= 2) {
             danoAtaque = destreza * 2;
             alvo.receberDano(danoAtaque);
-            this.flechas--;
+            this.flechas-= 2;
             System.out.println("Habilidade especial usada com sucesso, voce causou "
                     + danoAtaque + " ao inimigo. | voce possui "
                     + this.flechas + " flechas.");
         } else {
-            System.out.println("não é possivel realizar a habilidade especial sem flechas.");
+
 
         }
+
     }
+
+
 }
