@@ -82,13 +82,23 @@ public class Guerreiro extends Personagem implements Especial {
     * */
     @Override
     public void usarHabilidadeEspecial(Personagem alvo) {
-
+        if (this.getStamina() >= 20) {
+            setStamina(this.getStamina() - 20);
+            alvo.receberDano(2 * this.getPoderAtaque());
+        }
     }
 
     /*
     * Descrição: Aumenta bonusForca em +5 para o próximo ataque. Só pode ser usado uma vez por batalha.
     * */
-    public void gritoDeGuerra() {
-
+    public void gritoDeGuerra(Personagem alvo) {
+        if (!gritoUsado) {
+            System.out.println("Habilidade já usada.");
+            atacar(alvo);
+        } else {
+            this.setForca(this.getBonusForca() + 5);
+            atacar(alvo);
+            this.setBonusForca(this.getBonusForca() - 5);
+        }
     }
 }

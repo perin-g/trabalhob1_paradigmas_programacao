@@ -55,7 +55,13 @@ public class Mago extends  Personagem implements Especial {
     * */
     @Override
     public void usarHabilidadeEspecial(Personagem alvo) {
-
+        if (this.getMana() >= 30) {
+            this.setMana(this.getMana() - 30);
+            System.out.println("Mana atual: " + this.getMana());
+            alvo.receberDano(3 * this.getPoderMagico());
+        } else {
+            System.out.println("Mana insuficiente!");
+        }
     }
 
     /*
@@ -63,6 +69,13 @@ public class Mago extends  Personagem implements Especial {
     * (redução temporária no poder de ataque do alvo – efeito apenas impresso).
     * */
     public void raioCongelante(Personagem alvo) {
-
+        if (this.getMana() >= 20) {
+            this.setMana(this.getMana() - 20);
+            System.out.println("Mana atual: " + this.getMana());
+            alvo.receberDano(12);
+            System.out.println(alvo.getNome() + " está congelado.");
+        } else {
+            System.out.println("Mana insuficiente!");
+        }
     }
 }

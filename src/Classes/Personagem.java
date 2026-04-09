@@ -107,8 +107,8 @@ public abstract class Personagem {
     * */
     public void receberCura(int quantidade) {
         int hpPersonagem = getHp();
-        int PontosDeCura = quantidade;
-        int novoHp = (hpPersonagem + PontosDeCura);
+        int pontosDeCura = quantidade;
+        int novoHp = (hpPersonagem + pontosDeCura);
         if (novoHp > hpMax){
             setHp(hpMax);
         } else {
