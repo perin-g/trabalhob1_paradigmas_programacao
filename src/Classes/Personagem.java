@@ -13,10 +13,10 @@ public abstract class Personagem {
         this.defesaBase = 10;
     }
 
-    public Personagem(String nome, int hp, int hpMax, int defesaBase) {
+    public Personagem(String nome, int hp, int defesaBase) {
         this.nome = nome;
         this.hp = hp;
-        this.hpMax = hpMax;
+        this.hpMax = hp;
         this.defesaBase = defesaBase;
     }
 
