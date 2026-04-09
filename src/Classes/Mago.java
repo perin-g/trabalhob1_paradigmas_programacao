@@ -12,7 +12,7 @@ public class Mago extends  Personagem implements Especial {
         this.mana = mana;
     }
 
-    public Mago(String nome, int hp, int hpMax, int defesaBase, int poderMagico, int mana) {
+    public Mago(String nome, int hp, int defesaBase, int poderMagico, int mana) {
         super(nome, hp, defesaBase);
         this.poderMagico = poderMagico;
         this.mana = mana;
