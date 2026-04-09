@@ -34,6 +34,15 @@ public class Clerigo extends Personagem implements Especial {
         this.oracoes = oracoes;
     }
 
+    @Override
+    protected int getPoderAtaque() {
+            if (fe > 0){
+                return fe;
+            } else {
+
+            }
+    }
+
 
     @Override
     public void exibirStatus() {
@@ -44,12 +53,12 @@ public class Clerigo extends Personagem implements Especial {
 
     @Override
     public void usarHabilidadeEspecial (Personagem alvo) {
-
-
-
-
+        if ( oracoes >= 1){
+            this.oracoes-=1;
+        alvo.receberDano(fe);
+        } else {
+            System.out.println("não foi possível usar a habilidade. Não há orações disponíveis");
         }
-
     }
 
 

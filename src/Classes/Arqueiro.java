@@ -67,11 +67,17 @@ public class Arqueiro extends Personagem implements Especial {
             danoAtaque = destreza / 2;
             alvo.receberDano(danoAtaque);
             System.out.println("Habilidade especial foi usada, dano reduzido devido a quantidade de flechas. Você causou"
-            + danoAtaque + " ao inimigo. | você possui " + this.flechas + "flechas");
+            + danoAtaque + " ao inimigo. | você possui " + this.flechas + "flechas ");
         }
 
     }
-
+    public void flechaVenenosa (Personagem alvo){
+        alvo.receberDano(destreza);
+        this.flechas-=1;
+        System.out.println(" Habilidade especial foi usada com sucesso!  Você causou " + destreza + " de dano. | você" +
+                "possui " + this.flechas + "flechas"   +
+                alvo.getNome() + " envenenado, sofrerá +5 de dano nos próximos 2 turnos. ");
+    }
 
 
 }
