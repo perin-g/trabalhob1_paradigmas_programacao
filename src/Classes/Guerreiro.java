@@ -16,8 +16,8 @@ public class Guerreiro extends Personagem implements Especial {
         this.bonusForca = 5;
     }
 
-    public Guerreiro(String nome, int hp, int hpMax, int defesaBase, int forca, int stamina) {
-        super(nome, hp, hpMax, defesaBase);
+    public Guerreiro(String nome, int hp, int defesaBase, int forca, int stamina) {
+        super(nome, hp, defesaBase);
         this.forca = forca;
         this.stamina = stamina;
         this.gritoUsado = false;
