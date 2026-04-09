@@ -9,9 +9,9 @@ public class Guerreiro extends Personagem implements Especial {
     private int bonusForca;
 
     public Guerreiro(String nome, int forca, int stamina) {
-        super(nome);
-        this.forca = forca;
-        this.stamina = stamina;
+        super(nome, 100, 20);
+        this.forca = 5;
+        this.stamina = 50;
         this.gritoUsado = false;
         this.bonusForca = 5;
     }
