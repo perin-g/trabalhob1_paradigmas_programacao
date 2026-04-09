@@ -61,14 +61,17 @@ public class Arqueiro extends Personagem implements Especial {
             alvo.receberDano(danoAtaque);
             this.flechas-= 2;
             System.out.println("Habilidade especial usada com sucesso, voce causou "
-                    + danoAtaque + " ao inimigo. | voce possui "
+                    + danoAtaque + " ao inimigo. | você possui "
                     + this.flechas + " flechas.");
         } else {
-
-
+            danoAtaque = destreza / 2;
+            alvo.receberDano(danoAtaque);
+            System.out.println("Habilidade especial foi usada, dano reduzido devido a quantidade de flechas. Você causou"
+            + danoAtaque + " ao inimigo. | você possui " + this.flechas + "flechas");
         }
 
     }
+
 
 
 }
