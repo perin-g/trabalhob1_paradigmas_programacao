@@ -16,16 +16,21 @@ void main() {
     Scanner sc = new Scanner(System.in);
     int menu1 = 0;
 
-    do {
-        System.out.println("Masmorras & Dragões - uma aventura épica.");
-        System.out.println("Vamos iniciar nossa aventura criando nossos heróis.");
+    System.out.println("Masmorras & Dragões - uma aventura épica.");
+    System.out.println("Vamos iniciar nossa aventura criando nossos heróis.");
+    System.out.println("Quantos heróis deseja criar?");
+    int quantidadeHerois = Integer.parseInt(sc.nextLine());
+
+    while (quantidadeHerois > 0) {
         System.out.println("Me diga, quem é você?");
         String nome = sc.nextLine();
-        System.out.println("Qual a sua classe? (Guerreiro, Mago, Arqueiro, Clérigo)");
-        String classe = sc.nextLine().toLowerCase();
-        Personagem p1 = criarPersonagem(nome, classe, sc);
+        System.out.println("Qual a sua classe? \n1 - Guerreiro \n2- Mago \n3 - Arqueiro \n 4 - Clérigo)");
+        int classe = Integer.parseInt(sc.nextLine());
+    }
 
-    } while (menu1 == 5);
+
+
+    Personagem p1 = criarPersonagem(nome, classe, sc);
 
     do {
         System.out.println("opcoes de jogo:");
@@ -39,35 +44,35 @@ void main() {
 
 }
 
-private static Personagem criarPersonagem(String nome, String classe, Scanner sc) {
+private static Personagem criarPersonagem(String nome, int classe, Scanner sc) {
     System.out.println("Informe seu HP máximo: ");
     int hp = Integer.parseInt(sc.nextLine());
     System.out.println("Informe sua defesa: ");
     int defesaBase = Integer.parseInt(sc.nextLine());
 
     switch (classe) {
-        case "guerreiro":
+        case 1: //Guerreiro
             System.out.println("Informe sua força: ");
             int forca = Integer.parseInt(sc.nextLine());
             System.out.println("Informe sua stamina: ");
             int stamina = Integer.parseInt(sc.nextLine());
             Guerreiro guerreiro = new Guerreiro(nome, hp, defesaBase, forca, stamina);
             return guerreiro;
-        case "mago":
+        case 2: //Mago
             System.out.println("Informe seu poder mágico: ");
             int poderMagico = Integer.parseInt(sc.nextLine());
             System.out.println("Informe sua mana: ");
             int mana = Integer.parseInt(sc.nextLine());
             Mago mago = new Mago(nome, hp, defesaBase, poderMagico, mana);
             return mago;
-        case "arqueiro":
+        case 3: //Arqueiro
             System.out.println("Informe sua destreza: ");
             int destreza = Integer.parseInt(sc.nextLine());
             System.out.println("Informe sua quantidade de flechas: ");
             int flechas = Integer.parseInt(sc.nextLine());
             Arqueiro arqueiro = new Arqueiro(nome, hp, defesaBase, destreza, flechas);
             return arqueiro;
-        case "clérigo":
+        case 4: //Clérigo
             //TODO: implementar
         default:
             System.out.println("Classe não encontrada");
