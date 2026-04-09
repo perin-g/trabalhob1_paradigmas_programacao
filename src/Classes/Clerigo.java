@@ -12,7 +12,7 @@ public class Clerigo extends Personagem implements Especial {
             this.oracoes = oracoes;
         }
 
-        public Clerigo (String nome, int hp, int hpMax, int defesaBase, int destreza, int flechas) {
+        public Clerigo (String nome, int hp, int defesaBase, int destreza, int flechas) {
             super(nome, hp, hpMax, defesaBase);
             this.fe = destreza;
             this.oracoes = flechas;
@@ -36,11 +36,8 @@ public class Clerigo extends Personagem implements Especial {
 
     @Override
     protected int getPoderAtaque() {
-            if (fe > 0){
-                return fe;
-            } else {
-
-            }
+            int valorFe = fe /2;
+            return valorFe;
     }
 
 
@@ -61,6 +58,13 @@ public class Clerigo extends Personagem implements Especial {
         }
     }
 
+     public void curar(Personagem alvo){
+        if (alvo.getHp() < getHpMax()) {
+
+        }else {
+            System.out.println("não foi possível curar. "+ alvo.getNome() + "já está com a vida máxima.");
+        }
+    }
 
 
 
