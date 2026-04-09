@@ -73,6 +73,7 @@ public class Mago extends  Personagem implements Especial {
             this.setMana(this.getMana() - 20);
             System.out.println("Mana atual: " + this.getMana());
             alvo.receberDano(12);
+            System.out.println(alvo.getNome() + " está congelado.");
         } else {
             System.out.println("Mana insuficiente!");
         }
