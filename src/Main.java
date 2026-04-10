@@ -58,14 +58,14 @@ private static Personagem criarPersonagem(String nome, String classe, Scanner sc
             int poderMagico = Integer.parseInt(sc.nextLine());
             System.out.println("Informe sua mana: ");
             int mana = Integer.parseInt(sc.nextLine());
-            Mago mago = new Mago(nome, hp, defesaBase, poderMagico, mana);
+            Mago mago = new Mago(nome, hp, hpMax, defesaBase, poderMagico, mana);
             return mago;
         case "arqueiro":
             System.out.println("Informe sua destreza: ");
             int destreza = Integer.parseInt(sc.nextLine());
             System.out.println("Informe sua quantidade de flechas: ");
             int flechas = Integer.parseInt(sc.nextLine());
-            Arqueiro arqueiro = new Arqueiro(nome, hp, defesaBase, destreza, flechas);
+            Arqueiro arqueiro = new Arqueiro(nome, hp, hpMax, defesaBase, destreza, flechas);
             return arqueiro;
         case "clérigo":
             //TODO: implementar
