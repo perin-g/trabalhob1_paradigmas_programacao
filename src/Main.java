@@ -15,22 +15,34 @@ void main() {
 
     System.out.println("Masmorras & Dragões - uma aventura épica.");
     System.out.println("Vamos iniciar nossa aventura criando nossos heróis.");
-    System.out.println("Quantos heróis deseja criar?");
-    int quantidade = Integer.parseInt(sc.nextLine());
+    int quantidade;
+    while (true) {
+        System.out.println("Quantos heróis deseja criar?");
+
+        try {
+            quantidade = Integer.parseInt(sc.nextLine());
+
+            if (quantidade >= 2) {
+                break;
+            } else {
+                System.out.println("Você precisa criar pelo menos 2 heróis!");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Digite um número válido!");
+        }
+    }
 
     for (int i = 0; i < quantidade; i++) {
         System.out.println("Digite o nome do herói:");
         String nome = sc.nextLine();
-        System.out.println("Escolha a classe: \n1 - Guerreiro \n2 - Mago \n3 - Arqueiro \n 4 - Clérigo");
+        System.out.println("Escolha a classe: \n1 - Guerreiro \n2 - Mago \n3 - Arqueiro \n4 - Clérigo");
         int classe = Integer.parseInt(sc.nextLine());
 
         Personagem p = criarPersonagem(nome, classe, sc);
 
         if (p != null) {
-            time.add(criarPersonagem(nome, classe, sc));
-        } else {
-            System.out.println("Classe inválida, tente novamente.");
-            i--;
+            time.add(p); // usa o mesmo personagem
         }
     }
 
@@ -49,12 +61,12 @@ void main() {
         }
 
         System.out.println("Selecione o personagem que deve agir agora");
-        int personagem = Integer.parseInt(sc.nextLine());
+        int personagem = Integer.parseInt(sc.nextLine()) -1;
 
         System.out.println("Selecione o alvo");
-        int alvoAtaque = Integer.parseInt(sc.nextLine());
+        int alvoAtaque = Integer.parseInt(sc.nextLine()) -1;
 
-        if (personagem >= 0 && personagem < time.size() && alvoAtaque >= 0 & alvoAtaque <= time.size()) {
+        if (personagem >= 0 && personagem < time.size() && alvoAtaque >= 0 && alvoAtaque < time.size()) {
             Personagem atacante = time.get(personagem);
             Personagem alvo = time.get(alvoAtaque);
 
@@ -81,7 +93,6 @@ void main() {
                         }
                     } else if (atacante instanceof Mago) {
                         Mago m = (Mago) atacante;
-
                         System.out.println("Usar Raio Congelante? (s/n) \nRaio de gelo: Consome 20 de mana, causa 12 de dano e imprime um efeito de “congelamento” no alvo.");
                         String raioCongelante = sc.nextLine().toLowerCase();
                         if (raioCongelante.equals("s")) {
@@ -115,6 +126,7 @@ void main() {
                         System.out.println("Sua classe não pode curar!");
                         break;
                     }
+                    break;
                 case 4:
                     System.out.println("Pulando turno...");
                     break;
@@ -128,7 +140,7 @@ void main() {
                 turno = false;
                 break;
             } else if (alvo.getHp() == 0) {
-                System.out.println("O herói " + atacante.getNome() + " acaba de morrer, combate encerrado.");
+                System.out.println("O herói " + alvo.getNome() + " acaba de morrer, combate encerrado.");
                 turno = false;
                 break;
             }
@@ -154,7 +166,7 @@ private static Personagem criarPersonagem(String nome, int classe, Scanner sc) {
 //            int stamina = Integer.parseInt(sc.nextLine());
             int forca = 20;
             int stamina =100;
-            int defesaBase = 30;
+            int defesaBase = 15;
             int hp = 30;
             Guerreiro guerreiro = new Guerreiro(nome, hp, hp, defesaBase, forca, stamina);
             return guerreiro;
@@ -190,6 +202,7 @@ private static Personagem criarPersonagem(String nome, int classe, Scanner sc) {
             int hpClerigo = 80;
             int defesaClerigo = 18;
             Clerigo clerigo = new Clerigo(nome, hpClerigo, hpClerigo, defesaClerigo, fe, oracoes);
+            return clerigo;
         default:
             System.out.println("Classe não encontrada");
             return null;

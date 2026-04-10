@@ -66,7 +66,7 @@ public abstract class Personagem implements Especial {
     int defesaPersonagemAlvo = alvo.getDefesaBase();
     int valorFinalDano = (valorAtaque - defesaPersonagemAlvo);
         if(valorFinalDano <= 0){
-            valorFinalDano = 0;
+            valorFinalDano = 1;
         }
         System.out.println("voce causou " + valorFinalDano + " de dano, com seu ataque.");
     alvo.receberDano(valorFinalDano);

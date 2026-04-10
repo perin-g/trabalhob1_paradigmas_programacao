@@ -60,10 +60,10 @@ public class Guerreiro extends Personagem implements Especial {
     /*
     * Descrição: Retorna o valor de ataque básico como a soma de forca e bonusForca.
     * */
-    @Override
-    protected int getPoderAtaque() {
-        return 0;
-    }
+        @Override
+        protected int getPoderAtaque() {
+            return this.forca + this.bonusForca;
+        }
 
     /*
     * TODO: implementar método

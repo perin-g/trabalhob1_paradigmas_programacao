@@ -36,9 +36,8 @@ public class Mago extends  Personagem implements Especial {
 
     @Override
     protected int getPoderAtaque() {
-        return 0;
+        return this.poderMagico;
     }
-
 
     /*
     * TODO: implementar método

@@ -55,7 +55,7 @@ public class Clerigo extends Personagem implements Especial {
      public void curar(Personagem alvo){
             int novoHp =  alvo.getHp() + this.fe;
         if (alvo.getHp() < getHpMax()) {
-                setHp(novoHp);
+                alvo.setHp(novoHp);
         }else {
             System.out.println("não foi possível curar. "+ alvo.getNome() + "já está com a vida máxima.");
         }
