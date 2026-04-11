@@ -85,7 +85,7 @@ public class Guerreiro extends Personagem implements Especial {
     * */
     public void gritoDeGuerra(Personagem alvo) {
         if (!gritoUsado) {
-            System.out.println("Habilidade já usada.");
+            System.out.println("Habilidade já usada. Realizando ataque normal.");
             atacar(alvo);
         } else {
             this.setForca(this.getBonusForca() + 5);
