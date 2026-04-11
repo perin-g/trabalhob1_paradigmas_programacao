@@ -3,22 +3,21 @@ package Classes;
 import Interfaces.Especial;
 
 public class Guerreiro extends Personagem implements Especial {
-//ola mundo
     private int forca;
     private int stamina;
     private boolean gritoUsado;
     private int bonusForca;
 
     public Guerreiro(String nome, int forca, int stamina) {
-        super(nome);
-        this.forca = forca;
-        this.stamina = stamina;
+        super(nome, 100, 20);
+        this.forca = 5;
+        this.stamina = 50;
         this.gritoUsado = false;
         this.bonusForca = 5;
     }
 
-    public Guerreiro(String nome, int hp, int hpMax, int defesaBase, int forca, int stamina) {
-        super(nome, hp, hpMax, defesaBase);
+    public Guerreiro(String nome, int hp, int defesaBase, int forca, int stamina) {
+        super(nome, hp, defesaBase);
         this.forca = forca;
         this.stamina = stamina;
         this.gritoUsado = false;
@@ -83,13 +82,23 @@ public class Guerreiro extends Personagem implements Especial {
     * */
     @Override
     public void usarHabilidadeEspecial(Personagem alvo) {
-
+        if (this.getStamina() >= 20) {
+            setStamina(this.getStamina() - 20);
+            alvo.receberDano(2 * this.getPoderAtaque());
+        }
     }
 //123
     /*
     * Descrição: Aumenta bonusForca em +5 para o próximo ataque. Só pode ser usado uma vez por batalha.
     * */
-    public void gritoDeGuerra() {
-
+    public void gritoDeGuerra(Personagem alvo) {
+        if (!gritoUsado) {
+            System.out.println("Habilidade já usada.");
+            atacar(alvo);
+        } else {
+            this.setForca(this.getBonusForca() + 5);
+            atacar(alvo);
+            this.setBonusForca(this.getBonusForca() - 5);
+        }
     }
 }
