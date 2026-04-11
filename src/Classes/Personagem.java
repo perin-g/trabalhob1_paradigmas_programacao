@@ -1,6 +1,8 @@
 package Classes;
 
-public abstract class Personagem {
+import Interfaces.Especial;
+
+public abstract class Personagem implements Especial {
 
     private String nome;
     private int hp;
