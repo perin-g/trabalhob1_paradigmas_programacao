@@ -9,8 +9,8 @@ public abstract class Personagem {
 
     public Personagem(String nome) {
         this.nome = nome;
-        this.hp = 10;
-        this.defesaBase = 10;
+        this.hp = hp;
+        this.defesaBase = defesaBase;
     }
 
     public Personagem(String nome, int hp, int defesaBase) {
