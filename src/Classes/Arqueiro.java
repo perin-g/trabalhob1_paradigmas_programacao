@@ -6,12 +6,6 @@ public class Arqueiro extends Personagem implements Especial {
     private int destreza;
     private int flechas;
 
-    public Arqueiro(String nome, int destreza, int flechas) {
-        super(nome);
-        this.destreza = destreza;
-        this.flechas = flechas;
-    }
-
     public Arqueiro(String nome, int hp,int hpMax, int defesaBase, int destreza, int flechas) {
         super(nome, hp, hpMax, defesaBase);
         this.destreza = destreza;
