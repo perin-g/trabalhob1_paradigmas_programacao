@@ -6,10 +6,10 @@ public class Clerigo extends Personagem implements Especial {
     private int fe;
     private int oracoes;
 
-    public Clerigo (String nome, int hp,int hpMax, int defesaBase) {
+    public Clerigo (String nome, int hp,int hpMax, int defesaBase, int fe, int oracoes) {
         super(nome, hp, hpMax, defesaBase);
-        this.fe= 15;
-        this.oracoes = 200;
+        this.fe= fe;
+        this.oracoes = oracoes;
         }
 
     public int getFe() {
