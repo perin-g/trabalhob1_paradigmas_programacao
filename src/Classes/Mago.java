@@ -48,7 +48,11 @@ public class Mago extends  Personagem implements Especial {
     * */
     @Override
     public void usarHabilidadeEspecial(Personagem alvo) {
-
+        if (this.getMana() >= 30) {
+            alvo.receberDano(3 * this.poderMagico);
+        } else {
+            System.out.println("Sem mana suficiente.");
+        }
     }
 
     /*
